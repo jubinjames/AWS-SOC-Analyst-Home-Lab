@@ -1,0 +1,39 @@
+                USER
+                  │
+                  ▼
+        ┌──────────────────┐
+        │   EC2 (Ubuntu)   │
+        │  + Nginx Server  │
+        │  Generate Events │
+        └────────┬─────────┘
+                 │
+      Metrics + Logs
+                 │
+                 ▼
+      ┌──────────────────┐
+      │ CloudWatch Agent │
+      └────────┬─────────┘
+               │
+               ▼
+     ┌───────────────────┐
+     │   CloudWatch      │
+     │ Metrics + Logs    │
+     └────────┬──────────┘
+              │
+     Threshold Reached
+              │
+              ▼
+     ┌───────────────────┐
+     │ CloudWatch Alarm  │
+     └────────┬──────────┘
+              │
+      Notification
+              │
+              ▼
+     ┌───────────────────┐
+     │      SNS          │
+     │ Email Alert       │
+     └────────┬──────────┘
+              │
+              ▼
+         Email Inbox
